@@ -1,0 +1,44 @@
+[
+  {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "WebExtensionManifest",
+        "properties": {
+          "overlay_panel": {
+            "type": "object",
+            "additionalProperties": { "$ref": "UnrecognizedProperty" },
+            "properties": {
+              "default_title": {
+                "type": "string",
+                "optional": true,
+                "preprocess": "localize"
+              },
+              "default_panel": {
+                "type": "string",
+                "format": "relativeUrl",
+                "optional": true,
+                "preprocess": "localize"
+              }
+            },
+            "optional": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "namespace": "overlayPanels",
+    "description": "Experimental overlayPanels API",
+    "events": [
+      {
+        "name": "onShown",
+        "type": "function",
+        "description": "Fired when an overlay panel is shown.",
+        "parameters": []
+      }
+    ],
+    "functions": [
+    ]
+  }
+]
